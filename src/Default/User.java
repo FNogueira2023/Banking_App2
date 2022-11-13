@@ -98,18 +98,46 @@ public class User {
 	public void printAccountsSummary() {
 		System.out.printf(" \n\n %s's accounts summary", this.firstName);
 		for(int a = 0; a < this.accounts.size(); a++) {
-			System.out.printf("%d) %s\n", this.accounts.get(a).getSummaryLine());
+			System.out.printf("%d) %s\n", a+1,  this.accounts.get(a).getSummaryLine());
 		}
 		System.out.println();
 	}
 	
-
-
+	public int numAccounts() {
+		return this.accounts.size();
+	}
 	
+	/**
+	 * Print transaction history for a particular account
+	 * @param accountIndex
+	 */
+	public void printAccountTransHistory (int accountIndex) {
+		this.accounts.get(accountIndex).printTransHistory();
+	}
+	
+	public double getAccountBalance( int accountIndex) {
+		return this.accounts.get(accountIndex).getBalance();
+	}
+	
+	/**
+	 * Get the accountId of a particular account
+	 * @param accountId
+	 * @return
+	 */
+	public String getIdAccount(int accountIndex) {
+		return this.accounts.get(accountIndex).getIdAccount();
+	}
 
-
-
-
+	/**
+	 * 
+	 * @param accountIndex
+	 * @param amount
+	 * @param memo
+	 */
+	public void addAccountTransaction(int accountIndex, double amount, String memo) {
+		this.accounts.get(accountIndex).addTransaction(amount,memo);	
+	}
+	
 }
 
 
